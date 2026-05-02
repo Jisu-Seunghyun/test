@@ -81,6 +81,38 @@
   }
 
   /* ═══════════════════════════════════════════
+     Background Music
+     ═══════════════════════════════════════════ */
+
+  function initBgm() {
+    const audio = $('#bgmAudio');
+    const btn = $('#bgmToggle');
+    if (!audio || !btn) return;
+
+    audio.volume = 0.6;
+
+    btn.addEventListener('click', async () => {
+      if (audio.paused) {
+        try {
+          await audio.play();
+          btn.classList.add('is-playing');
+          btn.textContent = 'Ⅱ';
+          btn.setAttribute('aria-label', '배경음악 정지');
+          btn.setAttribute('aria-pressed', 'true');
+        } catch {
+          showToast('music/bgm.mp3 파일을 확인해 주세요');
+        }
+      } else {
+        audio.pause();
+        btn.classList.remove('is-playing');
+        btn.textContent = '♪';
+        btn.setAttribute('aria-label', '배경음악 재생');
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+  }
+
+  /* ═══════════════════════════════════════════
      Clipboard
      ═══════════════════════════════════════════ */
 
@@ -601,6 +633,7 @@
 
   async function init() {
     setMetaTags();
+    initBgm();
     initCurtain();
     initHero();
     initCountdown();

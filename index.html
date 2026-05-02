@@ -25,6 +25,12 @@
 </head>
 <body>
 
+  <!-- ─── Background Music ─── -->
+  <audio id="bgmAudio" src="music/bgm.mp3" loop preload="none"></audio>
+  <button class="bgm-toggle" id="bgmToggle" type="button" aria-label="배경음악 재생" aria-pressed="false">
+    ♪
+  </button>
+
   <!-- ─── Curtain (Simple Overlay) ─── -->
   <div id="curtain" class="curtain">
     <div class="curtain__content">
@@ -163,7 +169,7 @@
         <div class="accordion animate-item" data-animate="fade-up">
           <button class="accordion__trigger" id="groomAccordion" aria-expanded="false">
             <span>신랑측 계좌번호</span>
-            <span class="accordion__arrow">&#8964;</span>
+            <span class="accordion__arrow" aria-hidden="true">▽</span>
           </button>
           <div class="accordion__panel" id="groomAccordionPanel">
             <div class="accordion__panel-inner" id="groomAccountList"></div>
@@ -174,7 +180,7 @@
         <div class="accordion animate-item" data-animate="fade-up">
           <button class="accordion__trigger" id="brideAccordion" aria-expanded="false">
             <span>신부측 계좌번호</span>
-            <span class="accordion__arrow">&#8964;</span>
+            <span class="accordion__arrow" aria-hidden="true">▽</span>
           </button>
           <div class="accordion__panel" id="brideAccordionPanel">
             <div class="accordion__panel-inner" id="brideAccountList"></div>
