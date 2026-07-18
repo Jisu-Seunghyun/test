@@ -18,7 +18,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400&family=Homemade+Apple&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
   <script src="config.js"></script>
@@ -58,8 +58,22 @@
 
     <!-- Hero Section -->
     <section class="section hero" id="hero">
-      <div class="hero__photo-wrap">
-        <img class="hero__photo" id="heroPhoto" src="" alt="웨딩 사진" loading="eager">
+      <div class="hero__cover animate-item" data-animate="fade-in">
+        <p class="hero__hand hero__hand--title">Our Wedding</p>
+        <div class="hero__album">
+          <p class="hero__hand hero__hand--day">day</p>
+          <span class="hero__doodle hero__doodle--swirl" aria-hidden="true"></span>
+          <span class="hero__doodle hero__doodle--heart-left" aria-hidden="true"></span>
+          <span class="hero__doodle hero__doodle--heart-right" aria-hidden="true"></span>
+          <span class="hero__doodle hero__doodle--star-left" aria-hidden="true"></span>
+          <span class="hero__doodle hero__doodle--star-right" aria-hidden="true"></span>
+          <div class="hero__photo-wrap">
+            <img class="hero__photo" id="heroPhoto" src="" alt="웨딩 사진" loading="eager">
+          </div>
+        </div>
+        <span class="hero__tiny-heart hero__tiny-heart--left" aria-hidden="true">♥</span>
+        <span class="hero__tiny-heart hero__tiny-heart--center" aria-hidden="true">♥</span>
+        <span class="hero__tiny-heart hero__tiny-heart--right" aria-hidden="true">♥</span>
       </div>
       <div class="hero__content">
         <h1 class="hero__names animate-item" data-animate="fade-up" id="heroNames"></h1>

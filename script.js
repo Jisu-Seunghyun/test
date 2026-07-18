@@ -32,6 +32,18 @@
     return new Date(`${CONFIG.wedding.date}T${CONFIG.wedding.time}:00`);
   }
 
+  function formatCoverDate(dateStr, timeStr) {
+    const d = new Date(`${dateStr}T${timeStr}:00`);
+    const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const date = String(d.getDate()).padStart(2, '0');
+    const hours = String(d.getHours()).padStart(2, '0');
+    const minutes = String(d.getMinutes()).padStart(2, '0');
+    const period = d.getHours() < 12 ? 'am' : 'pm';
+    return `${year}.${month}.${date}. ${days[d.getDay()]}. ${hours}:${minutes}${period}`;
+  }
+
   /* ═══════════════════════════════════════════
      Image Auto-Detection
      ═══════════════════════════════════════════ */
@@ -186,7 +198,7 @@
   function initHero() {
     $('#heroPhoto').src = 'images/hero/1.jpg';
     $('#heroNames').textContent = `${CONFIG.groom.name}  ·  ${CONFIG.bride.name}`;
-    $('#heroDate').textContent = formatDate(CONFIG.wedding.date, CONFIG.wedding.time);
+    $('#heroDate').textContent = formatCoverDate(CONFIG.wedding.date, CONFIG.wedding.time);
     $('#heroVenue').textContent = CONFIG.wedding.venue;
   }
 
