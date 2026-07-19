@@ -334,8 +334,12 @@ a {
    ═══════════════════════════════════════════ */
 .hero {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: 100svh;
-  padding: clamp(1.75rem, 7vw, 3rem) 1.25rem 2.75rem;
+  padding: clamp(1.25rem, 5vw, 2.5rem) 0 2.75rem;
+  overflow: hidden;
   background:
     radial-gradient(circle at 8% 76%, rgba(226, 174, 169, 0.28) 0 3px, transparent 4px),
     radial-gradient(circle at 96% 90%, rgba(226, 174, 169, 0.28) 0 4px, transparent 5px),
@@ -343,15 +347,15 @@ a {
 }
 
 .hero__cover {
+  --hero-cover-width: 360px;
+  --hero-album-width: 330px;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 350px;
+  width: calc(100% - 2rem);
+  max-width: var(--hero-cover-width);
   margin: 0 auto;
-  padding-top: 1.6rem;
+  padding-top: 1.15rem;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .hero__hand {
@@ -364,24 +368,26 @@ a {
 }
 
 .hero__hand--title {
-  margin-bottom: -0.18rem;
-  font-size: clamp(1.7rem, 7vw, 2.35rem);
+  display: block;
+  width: 100%;
+  margin: 0 auto -0.16rem;
+  font-size: clamp(1.9rem, 8vw, 2.65rem);
   letter-spacing: 0;
+  text-align: center;
   white-space: nowrap;
-  transform: translateX(-0.35rem) rotate(-2deg);
+  transform: rotate(-2deg);
 }
 
 .hero__album {
   position: relative;
-  width: 82%;
-  max-width: 292px;
+  width: 100%;
+  max-width: var(--hero-album-width);
   aspect-ratio: 0.79;
   margin: 0 auto;
+  box-sizing: border-box;
   background:
-    linear-gradient(90deg, rgba(128, 76, 83, 0.22), transparent 9%, transparent 100%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 28%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, rgba(180, 83, 111, 0.06) 1px 3px),
-    #d99ab2;
+    linear-gradient(90deg, rgba(86, 43, 51, 0.2), transparent 12%, transparent 100%),
+    url("images/hero/album-cover-texture.png") center / cover no-repeat;
   box-shadow:
     -9px 7px 10px rgba(88, 44, 58, 0.22),
     inset 8px 0 10px rgba(98, 50, 65, 0.18),
@@ -391,11 +397,11 @@ a {
 .hero__album::before {
   content: "";
   position: absolute;
-  inset: 0 0 0 1.1rem;
+  inset: 0;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.24), transparent 4px),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 38%);
-  opacity: 0.32;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 36%),
+    radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.08), transparent 28%);
+  opacity: 0.45;
   pointer-events: none;
 }
 
@@ -443,6 +449,8 @@ a {
 .hero__content {
   position: relative;
   z-index: 2;
+  width: min(86vw, 360px);
+  margin: 0 auto;
   text-align: center;
   padding: 2rem 0 0;
 }
@@ -515,8 +523,8 @@ a {
 }
 
 .hero__doodle--star-right {
-  right: -0.45rem;
-  bottom: 3.9rem;
+  right: 1.2rem;
+  bottom: 4.25rem;
   transform: rotate(20deg) scale(0.85);
 }
 
